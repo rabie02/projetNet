@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MagasinDB2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adminn">
+    <Key>
+      <PropertyRef Name="id_ad" />
+    </Key>
+    <Property Name="id_ad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="telephone" Type="Decimal" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="commande">
+    <Key>
+      <PropertyRef Name="id_commande" />
+    </Key>
+    <Property Name="id_commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ville" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="code_postal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="produits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id" Type="Int32" />
+    <Property Name="paiement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_commande" Type="DateTime" Precision="0" />
+    <Property Name="heure_commande" Type="Time" Precision="7" />
+    <Property Name="etat_commande" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="id_message" />
+    </Key>
+    <Property Name="id_message" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_clt" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom_produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="prix" Type="Double" Nullable="false" />
+    <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MagasinDB2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adminn" EntityType="Self.adminn" />
+    <EntitySet Name="client" EntityType="Self.client" />
+    <EntitySet Name="commande" EntityType="Self.commande" />
+    <EntitySet Name="contact" EntityType="Self.contact" />
+    <EntitySet Name="product" EntityType="Self.product" />
+  </EntityContainer>
+</Schema>

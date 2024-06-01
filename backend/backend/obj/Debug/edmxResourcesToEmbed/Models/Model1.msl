@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MagasinDB2ModelStoreContainer" CdmEntityContainer="MagasinDB2Entities">
+    <EntitySetMapping Name="adminn">
+      <EntityTypeMapping TypeName="MagasinDB2Model.adminn">
+        <MappingFragment StoreEntitySet="adminn">
+          <ScalarProperty Name="id_ad" ColumnName="id_ad" />
+          <ScalarProperty Name="firstname_ad" ColumnName="firstname_ad" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="client">
+      <EntityTypeMapping TypeName="MagasinDB2Model.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="commande">
+      <EntityTypeMapping TypeName="MagasinDB2Model.commande">
+        <MappingFragment StoreEntitySet="commande">
+          <ScalarProperty Name="id_commande" ColumnName="id_commande" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="ville" ColumnName="ville" />
+          <ScalarProperty Name="code_postal" ColumnName="code_postal" />
+          <ScalarProperty Name="produits" ColumnName="produits" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="paiement" ColumnName="paiement" />
+          <ScalarProperty Name="date_commande" ColumnName="date_commande" />
+          <ScalarProperty Name="heure_commande" ColumnName="heure_commande" />
+          <ScalarProperty Name="etat_commande" ColumnName="etat_commande" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contact">
+      <EntityTypeMapping TypeName="MagasinDB2Model.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="id_message" ColumnName="id_message" />
+          <ScalarProperty Name="id_clt" ColumnName="id_clt" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product">
+      <EntityTypeMapping TypeName="MagasinDB2Model.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="nom_produit" ColumnName="nom_produit" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

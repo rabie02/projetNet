@@ -1,0 +1,58 @@
+﻿<style>
+    body {
+        background-color: #f8f9fa; /* Couleur de fond légère */
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #007BFF; /* Bleu vif */
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #28a745; /* Vert */
+        font-weight: bold;
+    }
+
+        a:hover {
+            color: #218838; /* Vert plus foncé au survol */
+        }
+    button {
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+</style>
+
+<h2>Menu d'administration</h2>
+
+<ul>
+    @foreach (var functionality in Model)
+    {
+        <li><a href="@functionality.Url">@functionality.Name</a></li>
+    }
+</ul>
+<button onclick="logout()">Logout</button>
+<script>
+
+
+    function logout() {
+        window.location.href = "http://localhost:3000/";
+    }
+</script>

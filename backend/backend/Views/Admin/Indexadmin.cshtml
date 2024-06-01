@@ -1,0 +1,107 @@
+﻿@model IEnumerable<backend.Models.adminn>
+
+@{
+    ViewBag.Title = "Indexadmin";
+}
+
+<style>
+    body {
+        padding-top: 70px; /* Ajustez cette valeur en fonction de la hauteur de votre navbar */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .action-links a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .action-links a:hover {
+            color: #007BFF;
+        }
+ 
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Admin Panel</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                @Html.ActionLink("Create New", "Createadmin", null, new { @class = "nav-link" })
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Indexadmin</h2>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.firstname_ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telephone)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstname_ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telephone)
+                </td>
+                <td>
+                    <div class="action-links">
+                        @Html.ActionLink("Edit", "Editadmin", new { id = item.id_ad }, new { @class = "btn btn-primary btn-sm" }) |
+                        @Html.ActionLink("Details", "Detailsadmin", new { id = item.id_ad }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Delete", "Deleteadmin", new { id = item.id_ad }, new { @class = "btn btn-danger btn-sm" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+   
+
+</div>

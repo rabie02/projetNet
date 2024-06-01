@@ -1,0 +1,145 @@
+﻿@model IEnumerable<backend.Models.commande>
+
+<style>
+    body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+    }
+
+    tr:nth-child(even) {
+        background-color: #ecf0f1; /* Couleur de fond pour les lignes paires */
+    }
+
+    input[type="text"] {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+</style>
+
+<h2>Commandes</h2>
+
+<input type="text" id="searchInput" placeholder="Rechercher par nom..." onkeyup="searchTable()">
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ville)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.code_postal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paiement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_commande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.heure_commande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etat_commande)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ville)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.code_postal)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.paiement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date_commande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.heure_commande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.etat_commande)
+            </td>
+        </tr>
+    }
+</table>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+    function searchTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.querySelector(".table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function logout() {
+        window.location.href = "http://localhost:3000/";
+    }
+</script>

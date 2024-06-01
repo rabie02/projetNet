@@ -1,0 +1,78 @@
+﻿@model IEnumerable<backend.Models.commande>
+
+@{
+    ViewBag.Title = "Indexcommande";
+}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .action-links button {
+        margin-right: 5px;
+    }
+
+    .btn-edit {
+        background-color: #28a745; /* Green color for Edit button */
+        border-color: #28a745;
+    }
+
+    .btn-details {
+        background-color: #007bff; /* Blue color for Details button */
+        border-color: #007bff;
+    }
+
+    .btn-delete {
+        background-color: #dc3545; /* Red color for Delete button */
+        border-color: #dc3545;
+    }
+</style>
+<h2>Indexcommande</h2>
+
+<p>
+    <a href="@Url.Action("CreateCommande")" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.nom)</th>
+        <th>@Html.DisplayNameFor(model => model.adresse)</th>
+        <th>@Html.DisplayNameFor(model => model.ville)</th>
+        <th>@Html.DisplayNameFor(model => model.code_postal)</th>
+        <th>@Html.DisplayNameFor(model => model.paiement)</th>
+        <th>@Html.DisplayNameFor(model => model.date_commande)</th>
+        <th>@Html.DisplayNameFor(model => model.heure_commande)</th>
+        <th>@Html.DisplayNameFor(model => model.etat_commande)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.nom)</td>
+            <td>@Html.DisplayFor(modelItem => item.adresse)</td>
+            <td>@Html.DisplayFor(modelItem => item.ville)</td>
+            <td>@Html.DisplayFor(modelItem => item.code_postal)</td>
+            <td>@Html.DisplayFor(modelItem => item.paiement)</td>
+            <td>@Html.DisplayFor(modelItem => item.date_commande)</td>
+            <td>@Html.DisplayFor(modelItem => item.heure_commande)</td>
+            <td>@Html.DisplayFor(modelItem => item.etat_commande)</td>
+            <td class="action-links">
+                <button class="btn btn-edit" onclick="location.href='@Url.Action("EditCommande", "admin", new { id = item.id_commande })'">Edit</button>
+                <button class="btn btn-details" onclick="location.href='@Url.Action("DetailsCommande", "admin", new { id = item.id_commande })'">Details</button>
+                <button class="btn btn-delete" onclick="location.href='@Url.Action("DeleteCommande", "admin", new { id = item.id_commande })'">Delete</button>
+            </td>
+        </tr>
+    }
+</table>

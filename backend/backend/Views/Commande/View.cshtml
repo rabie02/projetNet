@@ -1,0 +1,81 @@
+﻿@model IEnumerable<backend.Models.commande>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ville)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.code_postal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.produits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paiement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_commande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.heure_commande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etat_commande)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adresse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.code_postal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.produits)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paiement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_commande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.heure_commande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.etat_commande)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_commande }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_commande }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_commande })
+        </td>
+    </tr>
+}
+
+</table>

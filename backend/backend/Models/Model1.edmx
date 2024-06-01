@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MagasinDB2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminn">
+          <Key>
+            <PropertyRef Name="id_ad" />
+          </Key>
+          <Property Name="id_ad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname_ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="20" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" />
+          <Property Name="telephone" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="id_commande" />
+          </Key>
+          <Property Name="id_commande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ville" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="code_postal" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="produits" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="id" Type="int" />
+          <Property Name="paiement" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_commande" Type="date" />
+          <Property Name="heure_commande" Type="time" Precision="7" />
+          <Property Name="etat_commande" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id_message" />
+          </Key>
+          <Property Name="id_message" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_clt" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="message" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_produit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="prix" Type="float" Nullable="false" />
+          <Property Name="photo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="category" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MagasinDB2ModelStoreContainer">
+          <EntitySet Name="adminn" EntityType="Self.adminn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="client" EntityType="Self.client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="commande" EntityType="Self.commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contact" EntityType="Self.contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MagasinDB2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adminn">
+          <Key>
+            <PropertyRef Name="id_ad" />
+          </Key>
+          <Property Name="id_ad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname_ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="Decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="id_commande" />
+          </Key>
+          <Property Name="id_commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ville" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="code_postal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="produits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id" Type="Int32" />
+          <Property Name="paiement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_commande" Type="DateTime" Precision="0" />
+          <Property Name="heure_commande" Type="Time" Precision="7" />
+          <Property Name="etat_commande" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id_message" />
+          </Key>
+          <Property Name="id_message" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_clt" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prix" Type="Double" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MagasinDB2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adminn" EntityType="Self.adminn" />
+          <EntitySet Name="client" EntityType="Self.client" />
+          <EntitySet Name="commande" EntityType="Self.commande" />
+          <EntitySet Name="contact" EntityType="Self.contact" />
+          <EntitySet Name="product" EntityType="Self.product" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MagasinDB2ModelStoreContainer" CdmEntityContainer="MagasinDB2Entities">
+          <EntitySetMapping Name="adminn">
+            <EntityTypeMapping TypeName="MagasinDB2Model.adminn">
+              <MappingFragment StoreEntitySet="adminn">
+                <ScalarProperty Name="id_ad" ColumnName="id_ad" />
+                <ScalarProperty Name="firstname_ad" ColumnName="firstname_ad" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="client">
+            <EntityTypeMapping TypeName="MagasinDB2Model.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commande">
+            <EntityTypeMapping TypeName="MagasinDB2Model.commande">
+              <MappingFragment StoreEntitySet="commande">
+                <ScalarProperty Name="id_commande" ColumnName="id_commande" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="ville" ColumnName="ville" />
+                <ScalarProperty Name="code_postal" ColumnName="code_postal" />
+                <ScalarProperty Name="produits" ColumnName="produits" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="paiement" ColumnName="paiement" />
+                <ScalarProperty Name="date_commande" ColumnName="date_commande" />
+                <ScalarProperty Name="heure_commande" ColumnName="heure_commande" />
+                <ScalarProperty Name="etat_commande" ColumnName="etat_commande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contact">
+            <EntityTypeMapping TypeName="MagasinDB2Model.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="id_message" ColumnName="id_message" />
+                <ScalarProperty Name="id_clt" ColumnName="id_clt" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product">
+            <EntityTypeMapping TypeName="MagasinDB2Model.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="nom_produit" ColumnName="nom_produit" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

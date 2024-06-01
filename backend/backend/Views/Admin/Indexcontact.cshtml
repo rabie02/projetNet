@@ -1,0 +1,83 @@
+﻿@model IEnumerable<backend.Models.contact>
+
+@{
+    ViewBag.Title = "Indexcontact";
+}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .action-links a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .action-links a:hover {
+            color: #007BFF;
+        }
+</style>
+<h2>Indexcontact</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_clt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.message)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_clt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.message)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_message }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_message }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_message })
+        </td>
+    </tr>
+}
+
+</table>

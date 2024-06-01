@@ -1,0 +1,80 @@
+﻿@model IEnumerable<backend.Models.product>
+
+@{
+    ViewBag.Title = "Indexproduct";
+}
+
+<style>
+    body {
+        padding-top: 70px; /* Ajustez cette valeur en fonction de la hauteur de votre navbar */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .action-links a {
+        margin-right: 5px; /* Reduced margin for button links */
+        text-decoration: none;
+        color: #333;
+        padding: 3px 8px; /* Adjusted padding for button appearance */
+        border: 1px solid #333;
+        border-radius: 3px; /* Reduced rounded corners */
+        transition: background-color 0.3s ease;
+    }
+
+        .action-links a:hover {
+            color: #fff; /* Text color on hover */
+            background-color: #007BFF; /* Background color on hover */
+            border-color: #007BFF; /* Border color on hover */
+        }
+</style>
+
+<h2>Indexproduct</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateProduct", null, new { @class = "btn btn-primary" }) <!-- Bootstrap button style, replace with your own if not using Bootstrap -->
+</p>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.nom_produit)</th>
+        <th>@Html.DisplayNameFor(model => model.prix)</th>
+        <th>@Html.DisplayNameFor(model => model.photo)</th>
+        <th>@Html.DisplayNameFor(model => model.description)</th>
+        <th>@Html.DisplayNameFor(model => model.category)</th>
+        <th>@Html.DisplayNameFor(model => model.type)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.nom_produit)</td>
+            <td>@Html.DisplayFor(modelItem => item.prix)</td>
+            <td>
+                <img src="~/img/@item.photo" alt="@item.photo" width="100" height="100" />
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.description)</td>
+            <td>@Html.DisplayFor(modelItem => item.category)</td>
+            <td>@Html.DisplayFor(modelItem => item.type)</td>
+            <td class="action-links">
+                @Html.ActionLink("Edit", "EditProduct", new { id = item.id_product }, new { @class = "btn btn-secondary" }) |
+                @Html.ActionLink("Details", "DetailsProduct", new { id = item.id_product }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.id_product }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
